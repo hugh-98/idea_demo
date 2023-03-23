@@ -4,14 +4,9 @@
  */
 public class Calculator {
 
-    public int compute(int num1, int num2, String symbol) {
-        switch (symbol) {
-            case "+":
-                return num1 + num2;
-            case "-":
-                return num1 - num2;
-            default:
-                throw new IllegalArgumentException();
-        }
+    public int compute(int num1, int num2, char symbol) {
+        Computable computable = ComputeFactory.getCompute(symbol);
+        int result = computable.compute(num1, num2);
+        return result;
     }
 }
